@@ -139,17 +139,7 @@ def extract_work_experience(driver):
     # Извлекаем информацию о предыдущих позициях
     previous_positions = []
     positions_elements = driver.find_elements(By.CSS_SELECTOR, '[data-qa="resume-block-experience-position"]')
-    # descriptions_elements = driver.find_elements(By.CSS_SELECTOR, '[data-qa="resume-block-experience-description"]')
-    # companies_elements = driver.find_elements(By.CSS_SELECTOR,
-    #                                           '.bloko-text.bloko-text_strong a, .bloko-text.bloko-text_strong span')
 
-    # for pos_el, desc_el, comp_el in zip(positions_elements, descriptions_elements, companies_elements):
-    #     position = {
-    #         'position': pos_el.text,
-    #         'description': desc_el.text,
-    #         'company': comp_el.text
-    #     }
-    #     previous_positions.append(pos_el.text)
     for pos_el in positions_elements:
         previous_positions.append(pos_el.text)
 
@@ -187,23 +177,7 @@ def extract_languages(driver):
     return languages
 
 
-# def extract_education(driver):
-#     # Ищем элементы с названием учебного заведения и специализацией
-#     education_elements = driver.find_elements(By.CSS_SELECTOR, '[data-qa="resume-block-education-item"]')
-#
-#     # Список для хранения информации об образовании
-#     education_list = []
-#     for edu_el in education_elements:
-#         university = edu_el.find_element(By.CSS_SELECTOR, '[data-qa="resume-block-education-name"]').text
-#         specialization = edu_el.find_element(By.CSS_SELECTOR, '[data-qa="resume-block-education-organization"]').text
-#
-#         education_info = {
-#             "university": university,
-#             "specialization": specialization
-#         }
-#         education_list.append(education_info)
-#
-#     return education_list
+
 def extract_higher_education(driver):
     # Ищем элементы с названием учебного заведения и специализацией
     education_elements = driver.find_elements(By.CSS_SELECTOR,
@@ -265,25 +239,6 @@ def extract_about_me(driver):
         return ''
 
 
-# Пример использования:
-# driver = webdriver.Chrome()
-# # url = "https://spb.hh.ru/resume/0000be060005e968d50039ed1f59794d596569?requestId=16986602836077aa71fd168509cf21da&hhtmFrom=resume_search_result"
-# # url = "https://spb.hh.ru/resume/0000727b0003d237410039ed1f713358507a56?hhtmFrom=resume_search_result"
-# url = "https://spb.hh.ru/resume/a8121aa70000edb63d0039ed1f6274724c436b?hhtmFrom=resume_search_result"
-# # url = "https://spb.hh.ru/resume/1f3532680007b345300039ed1f596959543178?requestId=16986563213230e5d67fb01912d7004c&hhtmFrom=resume_search_result"
-# # url = "https://spb.hh.ru/resume/b6db184200036b920f0039ed1f7a765455726a?requestId=16986593175495f86cd630dc1f7e76c0&hhtmFrom=resume_search_result"
-# driver.get(url)
-# print(get_job_search_status(driver))
-# print(get_personal_info(driver))
-# print(extract_position_info(driver))
-# print(extract_work_experience(driver))
-# print(extract_skills(driver))
-# print(extract_languages(driver))
-# print(extract_higher_education(driver))
-# print(extract_courses(driver))
-# print(extract_driving_info(driver))
-# print(extract_about_me(driver))
-
 
 def process_cv(url):
     try:
@@ -335,7 +290,7 @@ def process_cv(url):
 if __name__ == '__main__':
     NUM_THREADS = 6
     data_rows = []
-    processed_count = 0  # <-- Counter for processed CVs
+    processed_count = 0
     lock = Lock()  # <-- Lock for thread-safe counter increment
 
 
@@ -396,8 +351,8 @@ if __name__ == '__main__':
             data_rows.append(data_row)
 
             with lock:  # Acquire the lock to ensure thread safety
-                processed_count += 1  # Increment the counter
-                print(f"Processed {processed_count}/{len(url_list)} CVs")  # Print the progress
+                processed_count += 1
+                print(f"Processed {processed_count}/{len(url_list)} CVs")
 
         except Exception as e:
             print(f"Error processing resume at {url}: {str(e)}")
