@@ -2,8 +2,11 @@ package com.example.backend.service;
 
 import com.example.backend.dao.Roles;
 import com.example.backend.dao.UserDao;
+import com.example.backend.dto.ResumeDto;
+import com.example.backend.mappers.MyMapper;
 import com.example.backend.repos.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.relational.core.sql.In;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -13,8 +16,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -22,6 +24,9 @@ public class UserService implements UserDetailsService {
 
     @Autowired
     UserRepo userRepo;
+    @Autowired
+    MyMapper mapper;
+
 
 
 
@@ -46,6 +51,8 @@ public class UserService implements UserDetailsService {
                 .collect(Collectors.toList());
         return mapRoles;
     }
+
+
 
 
 }
