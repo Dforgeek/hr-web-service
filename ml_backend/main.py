@@ -2,7 +2,7 @@ from typing import List
 import time
 import pandas as pd
 from fastapi import FastAPI
-import uvicorn
+from sqlalchemy import create_engine
 from data_models import *
 from sbert import SBERT
 import ast
@@ -16,8 +16,11 @@ sbert_model = SBERT()
 end_time = time.time()
 print(f"Time taken to launch SBERT: {end_time - start_time} seconds")
 
-resume_data = pd.read_csv('resume_data_n_embeddings.csv', index_col=0)
+engine = create_engine('postgresql+psycopg2://postgres:postgres@51.250.103.114:5432/hrBackDb')
 
+query = "SELECT * FROM resume"  # исрпавить на корректный селект
+resume_data = pd.read_sql(query, engine)
+print('Columns of table:', resume_data.columns)
 start_time = time.time()
 resume_embeddings = np.stack(resume_data['Embeddings'].apply(lambda x: np.array(ast.literal_eval(x))))
 end_time = time.time()
@@ -55,3 +58,11 @@ async def give_similarities(vacancy: Vacancy) -> List[SimilarityUnit]:
     similarity_units.sort(key=lambda x: x.similarity, reverse=True)
 
     return similarity_units
+
+
+@app.post("/update_resumes/")
+async def update_resumes():
+    global resume_data
+    global query
+    global engine
+    resume_data = pd.read_sql(query, engine)
