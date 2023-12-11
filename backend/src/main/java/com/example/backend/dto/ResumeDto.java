@@ -12,11 +12,11 @@ public class ResumeDto {
 
     private int id;
 
-    private Integer dateOfCreation;
-
-    private Integer creatorId;
-
-    private Integer vacancyId;
+//    private Integer dateOfCreation;
+//
+//    private Integer creatorId;
+//
+//    private Integer vacancyId;
 
     private String position;
 
@@ -60,7 +60,7 @@ public class ResumeDto {
 
     private String url;
 
-    private String embedding;
+//    private String embedding;
 
     private float similarity;
 

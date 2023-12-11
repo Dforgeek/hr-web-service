@@ -17,17 +17,17 @@ public class ResumeService {
     @Autowired
     ResumeRepo resumeRepo;
 
-    List<ResumeDto> getResumeDtoWithSimilarityForAll(HashMap<Integer, Float> similMap) {
+    public List<ResumeDto>  getResumeDtoWithSimilarityForAll(HashMap<Integer, Float> similMap) {
         List<ResumeDto> resList = new ArrayList<>();
-        for (int i = 0; i < similMap.size(); i++) {
-            similMap.forEach((k, v) -> resList.add(mapper.resumeDaoToDto(resumeRepo.findById(k).get()).setSimilarityAndReturnEntity(v)));
 
-        }
+        similMap.forEach((k, v) -> resList.add(mapper.resumeDaoToDto(resumeRepo.findById(k).get()).setSimilarityAndReturnEntity(v)));
+
+
 
         return resList;
     }
 
-    List<ResumeDto> getAllResumeFromListWhereCityIs(List<ResumeDto> fullResumeDtos, String city) {
+    public List<ResumeDto> getAllResumeFromListWhereCityIs(List<ResumeDto> fullResumeDtos, String city) {
         List<ResumeDto> resultList = new ArrayList<>();
         for (ResumeDto fullResumeDto : fullResumeDtos) {
             if (fullResumeDto.getCity().equals(city)) {

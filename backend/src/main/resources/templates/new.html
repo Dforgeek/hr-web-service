@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--  <title>Submit Vacancy</title>-->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    form {
+      width: 50%;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: visible;
+    }
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<form id="vacancyForm" th:action="@/resumes" method="post">
+  <h2>Submit Vacancy</h2>
+  <input type="text" th:name="position" placeholder="Position" required/>
+  <textarea th:name="description" placeholder="Description" required></textarea>
+  <textarea th:name="soft_skills" placeholder="Soft Skills"></textarea>
+  <textarea th:name="would_be_a_plus" placeholder="Would be a plus"></textarea>
+  <textarea th:name="key_skills" placeholder="Key Skills" required></textarea>
+  <input type="submit" value="Submit"/>
+</form>
+
+</body>
+</html>

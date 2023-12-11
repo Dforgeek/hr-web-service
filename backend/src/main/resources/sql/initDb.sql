@@ -33,7 +33,6 @@ CREATE TABLE IF NOT EXISTS client_roles(
 create table if not exists vacancy(
                                       id SERIAL,
                                       position varchar,
-                                      company_name varchar,
                                       description varchar,
                                       conditions varchar,
                                       key_skills varchar,
@@ -46,7 +45,7 @@ create table if not exists vacancy(
                                       employment varchar,
                                       schedule varchar,
                                       business_trips bool,
-                                      foreign key (creator_id) references client(id),
+
 
 
 
@@ -59,9 +58,6 @@ create table if not exists vacancy(
 
 Create TABLE if not exists resume (
                                       id SERIAL ,
-                                      date_of_creation int,
-                                      creator_id int,
-                                      vacancy_id int,
                                       position varchar,
                                       sex varchar,
                                       age int,
@@ -87,7 +83,7 @@ Create TABLE if not exists resume (
 
 
 
-                                      foreign key (creator_id) references client(id),
+
                                       primary key (id)
 );
 

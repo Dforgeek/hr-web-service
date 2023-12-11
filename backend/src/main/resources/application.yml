@@ -15,3 +15,5 @@ spring:
     allow-circular-references: true
 server.error.include-exception: true
 server.error.include-stacktrace: always
+spring.datasource.hikari.maximumPoolSize: 100
+spring.datasource.hikari.maxLifetime: 60000

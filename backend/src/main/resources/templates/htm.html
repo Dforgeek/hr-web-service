@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+xmlns:th="http://thymeleaf.org">
+<head>
+  <title>Vacancy Form</title>
+  <style>
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+    }
+    form {
+      width: 50%;
+      margin: 0 auto;
+      background-color: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      overflow: visible;
+    }
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <h1>Job Vacancy Form</h1>
+  </div>
+<!--  <div class="form-container">-->
+    <form action="#"  id="vacancyForm" th:action="@{/resumes}" th:object="${vacancyMlBody}" method="post">
+      <label for="position">Position:</label><br>
+      <input type="text" id="position" name="position" th:value="${vacancyMlBody.position}"><br>
+      <label for="description">Description:</label><br>
+      <textarea id="description" name="description" th:value="${vacancyMlBody.description}"></textarea><br>
+      <label for="softSkills">Soft Skills:</label><br>
+      <input type="text" id="softSkills" name="soft_skills" th:value="${vacancyMlBody.soft_skills}"><br>
+      <label for="wouldBeAPlus">Would be a Plus:</label><br>
+      <input type="text" id="wouldBeAPlus" name="would_be_a_plus" th:value="${vacancyMlBody.would_be_a_plus}"><br>
+      <label for="keySkills">Key Skills:</label><br>
+      <input type="text" id="keySkills" name="key_skills" th:value="${vacancyMlBody.key_skills}"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+<!--</div>-->
+
+<!--<script>-->
+<!--  document.getElementById('vacancyForm').addEventListener('submit', function(event) {-->
+<!--    event.preventDefault();-->
+
+<!--    var formData = new FormData(this);-->
+
+<!--    fetch('/resumes', {-->
+<!--      method: 'POST',-->
+<!--      body: JSON.stringify(Object.fromEntries(formData)),-->
+<!--      headers: {'Content-Type': 'application/json'}-->
+<!--    })-->
+<!--  .then(response => response.json())-->
+<!--              .then(data => ({-->
+<!--                // Redirect to the page with the response-->
+<!--                window.location.href = '/responsePage'})-->
+<!--              )-->
+<!--            .catch(error => console.error('Error:', error));-->
+<!--            );-->
+<!--</script>-->
+</body>
+</html>

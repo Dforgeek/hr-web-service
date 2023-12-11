@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vacancy Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        form {
+            width: 50%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        /*input[type="text"],*/
+        /*textarea {*/
+        /*    width: 100%;*/
+        /*    padding: 10px;*/
+        /*    margin: 5px 0;*/
+        /*    border: 1px solid #ccc;*/
+        /*    border-radius: 5px;*/
+        /*}*/
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            /*word-wrap: break-word;*/
+            overflow: visible/* Добавляем это свойство */
+        }
+    </style>
+</head>
+<body>
+<h1>Enter Vacancy Details</h1>
+<form id="vacancyForm" th:action="@/submitVacancy" method="post">
+    <label for="position">Position:</label><br>
+    <input type="text" id="position" name="position"><br>
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description"></textarea><br>
+    <label for="softSkills">Soft Skills:</label><br>
+    <input type="text" id="softSkills" name="softSkills"><br>
+    <label for="wouldBeAPlus">Would be a plus:</label><br>
+    <input type="text" id="wouldBeAPlus" name="wouldBeAPlus"><br>
+    <label for="keySkills">Key Skills:</label><br>
+    <input type="text" id="keySkills" name="keySkills"><br><br>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resume List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<h1>Resumes</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Position</th>
+        <th>Sex</th>
+        <th>Age</th>
+        <th>City</th>
+        <th>Relocation Ready</th>
+        <th>Business Trip Ready</th>
+        <th>Specializations</th>
+        <th>Employment</th>
+        <th>Work Schedule</th>
+        <th>Desired Salary</th>
+        <th>Total Experience</th>
+        <th>Previous Position</th>
+        <th>Skills</th>
+        <th>Language</th>
+        <th>Education</th>
+        <th>Courses</th>
+        <th>Has Car</th>
+        <th>Driving Categories</th>
+        <th>About Me</th>
+        <th>Job Search Status</th>
+        <th>URL</th>
+        <th>Similarity</th>
+    </tr>
+    <tr th:each="resume : ${resumes}">
+        <td th:text= "${resume.id}"></td>
+        <td th:text="${resume.position}"></td>
+        <td th:text="${resume.sex}"></td>
+        <td th:text="${resume.age}"></td>
+        <td th:text="${resume.city}"></td>
+        <td th:text="${resume.relocationReady}"></td>
+        <td th:text="${resume.businessTripReady}"></td>
+        <td th:text="${resume.specializations}"></td>
+        <td th:text="${resume.employment}"></td>
+        <td th:text="${resume.workSchedule}"></td>
+        <td th:text="${resume.desiredSalary}"></td>
+        <td th:text="${resume.totalExperience}"></td>
+        <td th:text="${resume.previousPosition}"></td>
+        <td th:text="${resume.skills}"></td>
+        <td th:text="${resume.language}"></td>
+        <td th:text="${resume.education}"></td>
+        <td th:text="${resume.courses}"></td>
+        <td th:text="${resume.hasCar}"></td>
+        <td th:text="${resume.drivingCategories}"></td>
+        <td th:text="${resume.aboutMe}"></td>
+        <td th:text="${resume.jobSearchStatus}"></td>
+        <td th:text="${resume.url}"></td>
+        <td th:text="${resume.similarity}"></td>
+    </tr>
+</table>
+</body>
+</html>
