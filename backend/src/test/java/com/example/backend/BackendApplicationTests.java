@@ -1,13 +1,17 @@
 package com.example.backend;
 
+import com.example.backend.dto.VacancyMlBody;
 import com.example.backend.repos.UserRepo;
 import com.example.backend.service.MainService;
+import com.example.backend.service.MlService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class BackendApplicationTests {
+    @Autowired
+    MlService mlService;
     @Autowired
     MainService service;
     @Autowired
@@ -18,6 +22,7 @@ class BackendApplicationTests {
     }
     @Test
     void tst(){
+
 //        UserDao clientDao = new UserDao();
 //
 //        clientDao.setEmail("exampleeasdawrwer@example.com");
@@ -26,8 +31,8 @@ class BackendApplicationTests {
 //        clientDao.setPassword("passwasdaordwerw");
 //        clientDao.setLogin("exampleasdloginwer");
 //        service.saveClient(clientDao);
-
-        System.out.println(repo.findByLogin("exampleasdloginwer"));
+//        VacancyMlBody vacancyMlBody=new VacancyMlBody()
+//        System.out.println(mlService.getRange());
 
     }
 

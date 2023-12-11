@@ -19,15 +19,15 @@ public class ResumeDao {
     @Id
     @Column(name = "id", nullable = false)
     private int id;
-    @Basic
-    @Column(name = "date_of_creation", nullable = true)
-    private Integer dateOfCreation;
-    @Basic
-    @Column(name = "creator_id", nullable = true)
-    private Integer creatorId;
-    @Basic
-    @Column(name = "vacancy_id", nullable = true)
-    private Integer vacancyId;
+//    @Basic
+//    @Column(name = "date_of_creation", nullable = true)
+//    private Integer dateOfCreation;
+//    @Basic
+//    @Column(name = "creator_id", nullable = true)
+//    private Integer creatorId;
+//    @Basic
+//    @Column(name = "vacancy_id", nullable = true)
+//    private Integer vacancyId;
     @Basic
     @Column(name = "position", nullable = true, length = -1)
     private String position;

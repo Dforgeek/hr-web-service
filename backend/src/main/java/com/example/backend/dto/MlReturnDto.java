@@ -7,8 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class MlReturnDto {
     int id;
-    double similarity;
+    float similarity;
 
 }

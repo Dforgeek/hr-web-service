@@ -14,7 +14,7 @@ public class MainService {
     @Autowired
     UserRepo userRepo;
     @Autowired
-    MLService mlService;
+    MlService mlService;
     @Autowired
     ResumeService resumeService;
 

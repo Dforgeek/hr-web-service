@@ -55,7 +55,76 @@ public class MySecurityConfig extends WebSecurityConfiguration {
 
 //                .requestMatchers("/login").permitAll()
                 .requestMatchers("/hello")/*.permitAll()*/.hasAnyRole("ADMIN","USER")
-                .requestMatchers("/get").hasRole("USER").anyRequest().permitAll();
+                .requestMatchers("/get").hasRole("USER")
+                .requestMatchers("/resumeByVacancy").hasRole("USER")
+                .requestMatchers("/resumes").hasRole("USER").anyRequest().permitAll()
+                .and().httpBasic()
+                .and().sessionManagement();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
